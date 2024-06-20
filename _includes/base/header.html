@@ -8,9 +8,15 @@
     {% endif %}
     <title>{{ page.title }} - {{ site.title }}</title>
     <link rel="stylesheet" href="/assets/styles/site.css">
+    <script>
+        window.addEventListener("load", (event) => {
+            document.querySelector('body').classList.add('loaded');
+        });
+    </script>
 </head>
-<body class="layout-{{ page.layout }}">
+<body class="layout-{{ page.layout }} page-{{ page.title | slugify }} theme-dark">
     
+
     <div class="site">
         
         <header class="site-header">

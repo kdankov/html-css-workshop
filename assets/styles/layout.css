@@ -5,20 +5,33 @@ body {
 .site {
     max-width: 900px;
     margin: 0 auto;
+    background: var(--clr-background);
+    color: var(--clr-text);
 }
 
 .site-header {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     padding-bottom: 1em;
-    border-bottom: 1px solid #EEE;
+    border-bottom: 1px solid light-dark(#EEE, #222);
     margin-bottom: 2em;
+    opacity: 0;
+    transform: translateY(-5em);
+    transition:
+        opacity 0.3s ease-in,
+        transform 0.3s ease-in-out;
+}
+
+body.loaded .site-header {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .site-title {
     margin-bottom: 0;
     line-height: 1;
+    font-size: 2.5em;
 }
 
 .site-footer {
@@ -46,6 +59,19 @@ body.layout-blog .site .site-footer {
 
 body.layout-blog .site > main {
     flex: 1 1 600px;
+}
+
+body .site > article {
+    opacity: 0;
+    transform: translateX(-5em);
+    transition:
+        opacity 0.3s ease-in 0.5s,
+        transform 0.3s ease-in-out 0.5s;
+}
+
+body.loaded .site > article {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 body.layout-blog .site > aside {
